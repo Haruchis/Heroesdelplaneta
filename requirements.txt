@@ -29,7 +29,7 @@ numpy==1.26.4
 openpyxl==3.1.5
 packaging==24.0
 pdfreader==0.1.15
-pillow==10.2.0
+Pillow==10.1.0
 platformdirs==3.11.0
 psycopg2-binary==2.9.10
 pycryptodome==3.21.0
