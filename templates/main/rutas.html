@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rutas - Héroes del Planeta{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <h2 class="text-success fw-bold mb-4">
+    <i class="bi bi-map-fill"></i> Nuestras Rutas de Recolección
+  </h2>
+
+  <div class="row mb-5 align-items-center">
+    <div class="col-md-7">
+      <img src="{% static 'img/rutas_principal.png' %}" class="img-fluid rounded shadow" alt="Mapa de rutas">
+    </div>
+    <div class="col-md-5 d-flex align-items-center">
+  <div class="bg-white bg-opacity-75 p-4 rounded shadow-sm">
+    <h3 class="text-success fw-bold mb-3">
+      <i class="bi bi-info-circle-fill"></i> Cobertura de Rutas
+    </h3>
+    <p class="fs-5 mb-0">
+      En <strong>Héroes del Planeta</strong> trabajamos en más de <strong>200 microrutas</strong>
+      en distintos sectores del municipio, atendiendo cada zona con compromiso y eficiencia
+      por parte de nuestros recicladores.
+    </p>
+  </div>
+</div>
+
+
+  <h4 class="text-success mb-3"><i class="bi bi-file-earmark-pdf"></i> Rutas por reciclador</h4>
+  <div id="carouselPdf" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+      <!-- Ejemplo de PDF en carousel -->
+      <div class="carousel-item active">
+        <div class="ratio ratio-16x9">
+          <iframe src="{% static 'pdf/rutas_reciclador_1.pdf' %}#zoom=130" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- Puedes agregar más PDF aquí -->
+      <!--
+      <div class="carousel-item">
+        <div class="ratio ratio-16x9">
+          <iframe src="{% static 'pdf/rutas_reciclador_2.pdf' %}#zoom=130" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      -->
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPdf" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselPdf" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
+{% endblock %}

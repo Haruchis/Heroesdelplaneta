@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Documentación - Héroes del Planeta{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <h2 class="text-success fw-bold mb-4">
+    <i class="bi bi-file-earmark-text"></i> Contrato de Condiciones Uniformes
+  </h2>
+
+  <div class="alert alert-info d-flex align-items-center" role="alert">
+    <i class="bi bi-info-circle-fill me-2"></i>
+    Aquí puedes visualizar el Contrato de Condiciones Uniformes para los usuarios del servicio.
+  </div>
+
+  <div class="ratio ratio-16x9 shadow-sm rounded mb-3">
+    <iframe src="{% static 'pdf/contrato_condiciones_uniformes.pdf' %}" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+  <a href="{% static 'pdf/contrato_condiciones_uniformes.pdf' %}" target="_blank" class="btn btn-success">
+    <i class="bi bi-download"></i> Descargar PDF
+  </a>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Iniciar sesión{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    background-image: url('{% static "img/fondo.png" %}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+</style>
+
+<div class="d-flex align-items-center justify-content-center" style="min-height: 90vh;">
+  <div class="card shadow-lg p-4 rounded" style="max-width: 400px; width: 100%; background-color: rgba(255, 255, 255, 0.95);">
+    <h4 class="mb-4 text-center text-success">Acceso para propiedades horizontales aliadas</h4>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    {% if form.errors %}
+      <div class="alert alert-danger">Usuario o contraseña incorrectos.</div>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.username.label_tag }}
+        {{ form.username|add_class:"form-control" }}
+      </div>
+      <div class="mb-3">
+        {{ form.password.label_tag }}
+        {{ form.password|add_class:"form-control" }}
+      </div>
+      <button type="submit" class="btn btn-success w-100">Entrar</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

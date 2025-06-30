@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Mis Certificados{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="mb-4 text-success fw-bold">
+    <i class="bi bi-file-earmark-text"></i> Mis Certificados
+  </h2>
+
+  {% if certificados %}
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered align-middle shadow-sm rounded overflow-hidden">
+        <thead class="table-success text-center">
+          <tr>
+            <th scope="col">📄 Nombre</th>
+            <th scope="col">📎 Archivo</th>
+            <th scope="col">📅 Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cert in certificados %}
+            <tr>
+              <td>{{ cert.nombre }}</td>
+              <td class="text-center">
+                <a href="{{ cert.archivo.url }}" download class="btn btn-outline-success btn-sm">
+                  <i class="bi bi-download"></i> Descargar
+                </a>
+              </td>
+              <td class="text-center">{{ cert.creado|date:"d/m/Y" }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="alert alert-info shadow-sm d-flex align-items-center" role="alert">
+      <i class="bi bi-info-circle me-2"></i> No tienes certificados disponibles en este momento.
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

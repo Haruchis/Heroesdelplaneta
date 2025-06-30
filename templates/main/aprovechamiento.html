@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Aprovechamiento - Héroes del Planeta{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-success fw-bold mb-4">
+    <i class="bi bi-bar-chart-line-fill"></i> Toneladas Aprovechadas y Rechazadas - 2025
+  </h2>
+
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Toneladas Transportadas y Aprovechadas</h5>
+        <canvas id="chartAprovechadas"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="text-center">Rechazos</h5>
+        <canvas id="chartRechazos"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+  const toneladasAprovechadas = [402.4, 455.2, 18.7, 22.3, 27.1, 29.5,408.2, , , , , ];
+  const toneladasRechazos = [2.1, 2.4, 2.9, 3.6, 3.9, 4.8, , , , , , ];
+
+  const chartAprovechadas = new Chart(document.getElementById('chartAprovechadas'), {
+    type: 'bar',
+    data: {
+      labels: meses,
+      datasets: [{
+        label: 'Toneladas Aprovechadas',
+        data: toneladasAprovechadas,
+        backgroundColor: 'rgba(40, 167, 69, 0.7)',
+        borderColor: 'rgba(40, 167, 69, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 5
+          }
+        }
+      }
+    }
+  });
+
+  const chartRechazos = new Chart(document.getElementById('chartRechazos'), {
+    type: 'bar',
+    data: {
+      labels: meses,
+      datasets: [{
+        label: 'Toneladas Rechazadas',
+        data: toneladasRechazos,
+        backgroundColor: 'rgba(220, 53, 69, 0.7)',
+        borderColor: 'rgba(220, 53, 69, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      }
+    }
+  });
+</script>
+{% endblock %}
