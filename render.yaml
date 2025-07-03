@@ -2,7 +2,9 @@ services:
   - type: web
     name: heroesdelplaneta
     env: python
-    plan: free
     runtime: python-3.11
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn heroesdelplaneta.wsgi"
+    startCommand: "gunicorn config.wsgi"
+    plan: free
+
+    
